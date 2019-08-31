@@ -1,0 +1,16 @@
+server:
+  port: 7778
+  servlet:
+    context-path: /
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7778/eureka/
+    fetch-registry: false
+    register-with-eureka: false
+spring:
+  security:
+    user:
+      name: root
+      password: 123456
+
