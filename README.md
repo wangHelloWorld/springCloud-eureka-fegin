@@ -265,4 +265,10 @@ eureka:
       defaultZone: http://root:123456@localhost:7778/eureka/
 
 
+ 在最后我使用common组件去完成共有参数的创建
+ 具体做法：
+ 创建新的Maven项目，通过Maven的install发布到本地的仓库，通过groupId，artifactId的pom信息，将common组件引入到需要的项目中如provider，conusmer
  
+ 在provider项目中使用@RequestBody接受来自consumer的访问参数。
+ 
+ consumer中可以使用@QequestParam("")接收参数并组合成provider需要的对象。也可以直接使用@ReqeustBody，但使用postman测试的时候，需要使用body传参
