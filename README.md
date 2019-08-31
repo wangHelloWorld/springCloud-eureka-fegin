@@ -272,3 +272,14 @@ eureka:
  在provider项目中使用@RequestBody接受来自consumer的访问参数。
  
  consumer中可以使用@QequestParam("")接收参数并组合成provider需要的对象。也可以直接使用@ReqeustBody，但使用postman测试的时候，需要使用body传参
+
+=================
+
+在consumer中添加容错hystrix
+ 在application.yml中添加
+  fegin:
+    hystrix:
+     enable: true
+  创建一个fallback类 HelloWorldControllerFallBack 该类实现HelloWorldIn接口 并添加注解@Componet
+  在接口类中的@FeginClient注解中添加fallback=HelloWorldControllerFallBack.class即可
+  
