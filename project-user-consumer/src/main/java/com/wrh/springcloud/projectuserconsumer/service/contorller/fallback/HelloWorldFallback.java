@@ -20,4 +20,10 @@ public class HelloWorldFallback implements HelloWorldIn{
 		return "loginUser exception";
 	}
 
+	@Override
+	public String loginRibbon(int count) {
+		// TODO Auto-generated method stub
+		return "loginRibbon Exception";
+	}
+
 }

@@ -33,5 +33,12 @@ public class HelloWorldController {
 		return helloWorld.loginUser(user);
 
 	}
+	@RequestMapping(value = "/loginRibbon", method = RequestMethod.POST)
+	public String loginCUserBody() {
+		for(int i = 0 ; i < 10 ;i++) {
+			helloWorld.loginRibbon(i);
+		}
+		return "Ribbon负载均衡";
 
+	}
 }
