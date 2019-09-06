@@ -1,0 +1,11 @@
+server:
+   port: 7781
+application:
+   name: project-getway-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@localhost:7778/eureka/
+zuul:
+   routes:
+      project-user-consumer: /user/**
