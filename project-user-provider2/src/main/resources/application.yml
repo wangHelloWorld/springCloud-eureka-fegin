@@ -1,0 +1,9 @@
+server:
+  port: 7780
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@localhost:7778/eureka/
+spring:
+  application:
+    name: project-user-provider
