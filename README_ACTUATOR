@@ -1,0 +1,1 @@
+通过访问eureka，看出http://192.168.1.2:8000/actuator/info该信息没有返回。所以添加actuator组件进行监控
