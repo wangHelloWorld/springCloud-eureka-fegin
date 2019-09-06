@@ -1,1 +1,12 @@
 通过访问eureka，看出http://192.168.1.2:8000/actuator/info该信息没有返回。所以添加actuator组件进行监控
+
+在pom.xml文件中添加boot组件actuator
+并在application.xml文件中添加如下配置信息
+management:
+   endpoints:
+      web:
+         exposure:
+            include: beans,info,health
+如果想使用*记得加""
+actuator使用可参考以下链接：
+https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html#production-ready-endpoints-exposing-endpoints
