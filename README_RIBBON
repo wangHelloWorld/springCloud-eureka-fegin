@@ -15,3 +15,22 @@ RIBBON有许多算法，默认使用的是轮询算法。所以我这边测试�
 2019-09-07 00:57:32.993  INFO 145316 --- [nio-7780-exec-5] c.w.s.p.controller.HelloWorld            : 8product-user-provider2
 
 如果想使用不同的算法，直接在application.xml中引入不同的class即可
+
+在后面我使用RanddomRule算法，配置如下。因为通过consumer来访问，所以ribbon的算法是在consumer项目中的application.xml中添加的
+添加方式如下：
+project-user-provider:
+   ribbon:
+      NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+添加完成启动测试结果如下：
+2019-09-07 01:21:20.324  INFO 142300 --- [nio-7779-exec-8] c.w.s.p.controller.HelloWorld            : 3product-user-provider2
+2019-09-07 01:21:20.333  INFO 142300 --- [nio-7779-exec-9] c.w.s.p.controller.HelloWorld            : 5product-user-provider2
+2019-09-07 01:21:20.339  INFO 142300 --- [io-7779-exec-10] c.w.s.p.controller.HelloWorld            : 6product-user-provider2
+2019-09-07 01:21:20.346  INFO 142300 --- [nio-7779-exec-1] c.w.s.p.controller.HelloWorld            : 8product-user-provider2
+
+2019-09-07 01:21:20.311  INFO 144528 --- [nio-7780-exec-7] c.w.s.p.controller.HelloWorld            : 0product-user-provider2
+2019-09-07 01:21:20.315  INFO 144528 --- [nio-7780-exec-8] c.w.s.p.controller.HelloWorld            : 1product-user-provider2
+2019-09-07 01:21:20.319  INFO 144528 --- [nio-7780-exec-6] c.w.s.p.controller.HelloWorld            : 2product-user-provider2
+2019-09-07 01:21:20.328  INFO 144528 --- [nio-7780-exec-9] c.w.s.p.controller.HelloWorld            : 4product-user-provider2
+2019-09-07 01:21:20.342  INFO 144528 --- [io-7780-exec-10] c.w.s.p.controller.HelloWorld            : 7product-user-provider2
+2019-09-07 01:21:20.350  INFO 144528 --- [nio-7780-exec-1] c.w.s.p.controller.HelloWorld            : 9product-user-provider2
+可以看出是随机访问的
