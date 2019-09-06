@@ -1,0 +1,17 @@
+当前版本的eureka包中自带RIBBON组件，且默认是打开的，所以可以直接复制provider，修改pom中afraticID及相关信息，和application.xml中的server.port.因为是
+在本地测试的是同一台机器，所以我这边修改了端口。
+
+RIBBON有许多算法，默认使用的是轮询算法。所以我这边测试的结果是：
+2019-09-07 00:57:32.950  INFO 144932 --- [nio-7779-exec-1] c.w.s.p.controller.HelloWorld            : 1product-user-provider2
+2019-09-07 00:57:32.972  INFO 144932 --- [nio-7779-exec-2] c.w.s.p.controller.HelloWorld            : 3product-user-provider2
+2019-09-07 00:57:32.980  INFO 144932 --- [nio-7779-exec-3] c.w.s.p.controller.HelloWorld            : 5product-user-provider2
+2019-09-07 00:57:32.989  INFO 144932 --- [nio-7779-exec-4] c.w.s.p.controller.HelloWorld            : 7product-user-provider2
+2019-09-07 00:57:32.997  INFO 144932 --- [nio-7779-exec-5] c.w.s.p.controller.HelloWorld            : 9product-user-provider2
+
+2019-09-07 00:57:32.830  INFO 145316 --- [nio-7780-exec-1] c.w.s.p.controller.HelloWorld            : 0product-user-provider2
+2019-09-07 00:57:32.967  INFO 145316 --- [nio-7780-exec-2] c.w.s.p.controller.HelloWorld            : 2product-user-provider2
+2019-09-07 00:57:32.976  INFO 145316 --- [nio-7780-exec-3] c.w.s.p.controller.HelloWorld            : 4product-user-provider2
+2019-09-07 00:57:32.985  INFO 145316 --- [nio-7780-exec-4] c.w.s.p.controller.HelloWorld            : 6product-user-provider2
+2019-09-07 00:57:32.993  INFO 145316 --- [nio-7780-exec-5] c.w.s.p.controller.HelloWorld            : 8product-user-provider2
+
+如果想使用不同的算法，直接在application.xml中引入不同的class即可
