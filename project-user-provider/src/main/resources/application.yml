@@ -7,3 +7,9 @@ eureka:
 spring:
   application:
     name: project-user-provider
+management:
+   endpoints:
+      web:
+         exposure:
+            include: beans,info,health
+            
