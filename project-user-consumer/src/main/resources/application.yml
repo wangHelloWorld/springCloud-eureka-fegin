@@ -10,3 +10,6 @@ eureka:
 feign:
   hystrix:
     enabled: true
+project-user-provider:
+   ribbon:
+      NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
