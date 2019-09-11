@@ -32,7 +32,7 @@ management:
     zipkin:
      base-url: http://localhost:8780
      sender:
-        type: web  //不添加找不到服务
+        type: web  //网上说需要添加，不然找不到服务，但亲测不加也行
     sleuth:
      sampler:
         percentage: 1.0 //全部取样
