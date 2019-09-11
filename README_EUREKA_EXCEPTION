@@ -1,0 +1,3 @@
+Batch update failure with HTTP status code 401; discarding 1 replication 
+上面是eureka-server启动之后报的error日志信息
+原因是没有指定eureka.instance.hostname=localhost

@@ -1,0 +1,17 @@
+zuul是springCloud的组件，提供过滤功能，实现网关服务
+需要引入两个依赖
+euraka
+zuul
+并在配置文件application.xml中添加如下信息：
+server:
+   port: 7781
+application:
+   name: project-getway-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@localhost:7778/eureka/
+zuul:
+   routes:
+      project-user-consumer: /user/**
+     
