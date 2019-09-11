@@ -3,6 +3,14 @@ server:
 spring:
   application:
     name: project-user-consumer
+  zipkin:
+     base-url: http://localhost:8780
+     sender:
+        type: web
+  sleuth:
+     sampler:
+        percentage: 1.0 
+        probability: 1
 eureka:
   client:
     service-url:

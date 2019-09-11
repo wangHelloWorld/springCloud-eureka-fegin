@@ -8,3 +8,11 @@ spring:
          profile: dev
    application:
        name: config-file
+   zipkin:
+     base-url: http://localhost:8780
+     sender:
+        type: web
+   sleuth:
+     sampler:
+        percentage: 1.0
+        probability: 1 
