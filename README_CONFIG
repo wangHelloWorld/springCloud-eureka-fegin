@@ -1,0 +1,11 @@
+使用分布式配置需要一个server
+配置git的相关信息，当然也可以使用本地作为仓库
+
+一个client：
+  在需要使用到配置文件的微服务中添加bootstrap.yml配置文件，在文件中添加spring.application.name(注意该name是你的git仓库中文件的名称，如果不是
+启动报错，拿不到对应的信息)
+
+在我测试的过程中遇到一个问题，我在git中创建config-file但是又加了一层目录，在子目录下创建配置文件config-file.配置了search-path但是测试一直没有对应的
+配置信息返回及porpertySource中没有信息。
+解决办法：去掉子目录，在search-path配置为/
+测试通过
