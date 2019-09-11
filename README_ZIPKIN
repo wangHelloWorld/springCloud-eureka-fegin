@@ -1,0 +1,39 @@
+创建springboot项目
+因为pom文件的parent为spring-boot所以添加zipKin的依赖需要带上版本号，要不找不到。
+
+其次需要在启动类中添加注解@EnableZipKinServer使用为过期的注解
+
+bootstrap.yml中文件内容如下
+server:
+  port: 8780
+spring:
+   application:
+       name: project-zipkin-server
+   main:
+      allow-bean-definition-overriding: true
+management:
+   metrics:
+      web:
+         server:
+            auto-time-requests: false
+  至此zipKinServer就完成了。
+  下面需要改造consumer和provider项目
+  需要引入
+  <dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+	</dependency>
+  <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-zipkin</artifactId>
+ </dependency>
+ 这两个依赖，然后配置文件中添加如下信息：
+ spring:
+    zipkin:
+     base-url: http://localhost:8780
+     sender:
+        type: web  //不添加找不到服务
+    sleuth:
+     sampler:
+        percentage: 1.0 //全部取样
+        probability: 1  //一次，默认是10次上传日志
