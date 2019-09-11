@@ -1,0 +1,23 @@
+server:
+  port: 7880
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@localhost:7778/eureka/ 
+management:
+   endpoints:
+      web:
+         exposure:
+            include: beans,info,health
+spring:
+   cloud:
+      config:
+         server:
+            git:
+               uri: https://github.com/wangHelloWorld/config-file.git
+               username: 1024488954@qq.com
+               password: wrh1024488954
+               search-path: /
+   application:
+      name: project-config-server
+       
