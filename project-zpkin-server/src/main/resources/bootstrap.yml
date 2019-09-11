@@ -1,0 +1,12 @@
+server:
+  port: 8780
+spring:
+   application:
+       name: project-zipkin-server
+   main:
+      allow-bean-definition-overriding: true
+management:
+   metrics:
+      web:
+         server:
+            auto-time-requests: false

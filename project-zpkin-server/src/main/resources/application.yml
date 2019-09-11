@@ -1,0 +1,11 @@
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@localhost:7778/eureka/
+
+management:
+   endpoints:
+      web:
+         exposure:
+            include: beans,info,health
