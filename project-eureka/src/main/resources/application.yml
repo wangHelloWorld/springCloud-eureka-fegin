@@ -8,6 +8,8 @@ eureka:
       defaultZone: http://localhost:7778/eureka/
     fetch-registry: false
     register-with-eureka: false
+  instance:
+     hostname: localhost
 spring:
   security:
     user:

@@ -1,0 +1,10 @@
+server:
+  port: 7780
+spring:
+   cloud:
+      config:
+         label: master
+         uri: http://localhost:7880/
+         profile: dev
+   application:
+       name: config-file
